@@ -13,6 +13,9 @@
   "attributes": {
     "testName": {
       "type": "string"
+    },
+    "stillThere": {
+      "type": "boolean"
     }
   }
 }
