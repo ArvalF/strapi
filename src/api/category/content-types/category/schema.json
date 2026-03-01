@@ -13,16 +13,17 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "unique": true
     },
     "slug": {
       "type": "uid"
     },
-    "articles": {
+    "projets": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article",
-      "mappedBy": "category"
+      "relation": "manyToMany",
+      "target": "api::projet.projet",
+      "inversedBy": "categories"
     },
     "description": {
       "type": "text"
