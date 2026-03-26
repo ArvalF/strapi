@@ -521,6 +521,7 @@ export interface ApiPressPress extends Struct.CollectionTypeSchema {
     printed: Schema.Attribute.Boolean & Schema.Attribute.Required;
     publication: Schema.Attribute.Date;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
