@@ -491,6 +491,42 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiPressPress extends Struct.CollectionTypeSchema {
+  collectionName: 'presses';
+  info: {
+    displayName: 'Press';
+    pluralName: 'presses';
+    singularName: 'press';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    couverture_magazine: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::press.press'> &
+      Schema.Attribute.Private;
+    logo_magazine: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    pdf_article: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    printed: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    publication: Schema.Attribute.Date;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProjectPageProjectPage extends Struct.SingleTypeSchema {
   collectionName: 'project_pages';
   info: {
@@ -534,6 +570,7 @@ export interface ApiProjetProjet extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    date: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -541,6 +578,7 @@ export interface ApiProjetProjet extends Struct.CollectionTypeSchema {
       'api::projet.projet'
     > &
       Schema.Attribute.Private;
+    location: Schema.Attribute.String;
     photograph: Schema.Attribute.String;
     photos: Schema.Attribute.Media<'images', true>;
     publishedAt: Schema.Attribute.DateTime;
@@ -1092,6 +1130,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::global.global': ApiGlobalGlobal;
+      'api::press.press': ApiPressPress;
       'api::project-page.project-page': ApiProjectPageProjectPage;
       'api::projet.projet': ApiProjetProjet;
       'api::type.type': ApiTypeType;

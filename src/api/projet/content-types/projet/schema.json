@@ -37,6 +37,12 @@
       "relation": "manyToMany",
       "target": "api::type.type",
       "mappedBy": "projets"
+    },
+    "location": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
     }
   }
 }
