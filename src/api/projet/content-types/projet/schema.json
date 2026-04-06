@@ -43,6 +43,16 @@
     },
     "date": {
       "type": "string"
+    },
+    "couverture_projet": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

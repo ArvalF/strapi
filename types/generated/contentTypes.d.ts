@@ -568,6 +568,9 @@ export interface ApiProjetProjet extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    couverture_projet: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
