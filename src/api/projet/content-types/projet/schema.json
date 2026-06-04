@@ -53,6 +53,9 @@
         "videos",
         "audios"
       ]
+    },
+    "date_d_affichage": {
+      "type": "date"
     }
   }
 }
