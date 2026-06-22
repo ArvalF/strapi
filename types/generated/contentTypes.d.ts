@@ -687,11 +687,20 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
       'api::service.service'
     > &
       Schema.Attribute.Private;
+    menuTitle: Schema.Attribute.String & Schema.Attribute.Required;
     photos: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
     publishedAt: Schema.Attribute.DateTime;
+    scrollable: Schema.Attribute.DynamicZone<
+      [
+        'shared.slider',
+        'shared.rich-text',
+        'shared.media',
+        'my-components.before-after-visualizer',
+      ]
+    >;
     service_types: Schema.Attribute.Relation<
       'manyToMany',
       'api::service-type.service-type'
@@ -700,6 +709,7 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 

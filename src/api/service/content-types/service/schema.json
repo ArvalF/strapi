@@ -11,6 +11,15 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "url": {
+      "type": "string",
+      "required": true,
+      "regex": "^[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*$"
+    },
+    "menuTitle": {
+      "type": "string",
+      "required": true
+    },
     "titre": {
       "type": "string"
     },
@@ -32,6 +41,15 @@
       "relation": "manyToMany",
       "target": "api::service-type.service-type",
       "mappedBy": "services"
+    },
+    "scrollable": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.slider",
+        "shared.rich-text",
+        "shared.media",
+        "my-components.before-after-visualizer"
+      ]
     }
   }
 }
