@@ -598,6 +598,45 @@ export interface ApiProjetProjet extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiScrollablePageScrollablePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'scrollable_pages';
+  info: {
+    displayName: 'servicePersonnalisable';
+    pluralName: 'scrollable-pages';
+    singularName: 'scrollable-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dynamicZone: Schema.Attribute.DynamicZone<
+      [
+        'shared.rich-text',
+        'shared.media',
+        'my-components.before-after-visualizer',
+        'shared.slider',
+      ]
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::scrollable-page.scrollable-page'
+    > &
+      Schema.Attribute.Private;
+    menuTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    pageTitle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ApiServiceTypeServiceType extends Struct.CollectionTypeSchema {
   collectionName: 'service_types';
   info: {
@@ -1206,6 +1245,7 @@ declare module '@strapi/strapi' {
       'api::press.press': ApiPressPress;
       'api::project-page.project-page': ApiProjectPageProjectPage;
       'api::projet.projet': ApiProjetProjet;
+      'api::scrollable-page.scrollable-page': ApiScrollablePageScrollablePage;
       'api::service-type.service-type': ApiServiceTypeServiceType;
       'api::service.service': ApiServiceService;
       'api::type.type': ApiTypeType;

@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_my_components_before_after_visualizers",
+  "info": {
+    "displayName": "beforeAfterVisualizer"
+  },
+  "options": {},
+  "attributes": {
+    "before": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "after": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

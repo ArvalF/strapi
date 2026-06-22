@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "scrollable_pages",
+  "info": {
+    "singularName": "scrollable-page",
+    "pluralName": "scrollable-pages",
+    "displayName": "servicePersonnalisable"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "url": {
+      "type": "string",
+      "required": true,
+      "regex": "^[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*$"
+    },
+    "menuTitle": {
+      "type": "string",
+      "required": true
+    },
+    "pageTitle": {
+      "type": "string"
+    },
+    "dynamicZone": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.rich-text",
+        "shared.media",
+        "my-components.before-after-visualizer",
+        "shared.slider"
+      ]
+    }
+  }
+}

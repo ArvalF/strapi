@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface MyComponentsBeforeAfterVisualizer
+  extends Struct.ComponentSchema {
+  collectionName: 'components_my_components_before_after_visualizers';
+  info: {
+    displayName: 'beforeAfterVisualizer';
+  };
+  attributes: {
+    after: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    before: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -65,6 +77,7 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'my-components.before-after-visualizer': MyComponentsBeforeAfterVisualizer;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
